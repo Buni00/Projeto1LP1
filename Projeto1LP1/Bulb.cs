@@ -5,17 +5,29 @@ public class Bulb
     private int number;
     private bool isOn;
 
+    /// <summary>
+    /// Creates a Bulb  with number and state
+    /// </summary>
+    /// <param name="number">Number of the bulb</param>
     public Bulb(int number)
     {
         this.number = number;
         this.isOn = false;
     }
 
+    /// <summary>
+    /// Gets the number of the bulb
+    /// </summary>
+    /// <value></value>
     public int Number
     {
         get { return number; }
     }
 
+    /// <summary>
+    /// Gets or sets the bulb to on or off
+    /// </summary>
+    /// <value></value>
     public bool IsOn
     {
         get { return isOn; }
