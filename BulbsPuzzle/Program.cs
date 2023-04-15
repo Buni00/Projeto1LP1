@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Projeto1LP1
+namespace BulbsPuzzle
 {
     class Program
     {   
@@ -107,7 +107,6 @@ namespace Projeto1LP1
                         roundCounter += 1;                    //so the Counter doesn't go down when error occurs
                         Console.WriteLine("Error! The input must be a number between 1 and 3");
                         break;
-
                 }
                 
                 //win condition

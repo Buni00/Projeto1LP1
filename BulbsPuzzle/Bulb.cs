@@ -49,6 +49,6 @@ public class Bulb
     /// <returns>if true \U0001F315 if false \u25EF </returns>
     public override string ToString()
     {
-        return $"{(isOn ? "\u1F505" : "\u25EF")}";
+        return $"{(isOn ? "\U0001F315" : "\u25EF")}";
     }
 }
