@@ -1,20 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace Projeto1LP1
 {
     class Program
-    {
+    {   
+        /// <summary>
+        /// declaring 3 different buttons
+        /// </summary>
         private static Button button1;
         private static Button button2;
         private static Button button3;
 
+        /// <summary>
+        /// declaring 3 different bulbs
+        /// </summary>
         private static Bulb bulb1;
         private static Bulb bulb2;
         private static Bulb bulb3;
         
         static void Main(string[] args)
         {
+            Console.OutputEncoding = Encoding.UTF8; 
+
             CreateBulbs();
 
             Instructions();
@@ -56,22 +65,29 @@ namespace Projeto1LP1
             );
         }
         
+        /// <summary>
+        /// Game loop that verifies win or loss condition and prints the state of the game every round
+        /// </summary>
         private static void GameCycle()
         {
             int roundCounter = 6;
             int move;
 
             bool winGame = false;
-
+            
+            //if the requirements are not met goes to the game loop
             while (!winGame && roundCounter > 0)
-            {
+            {   
+                //shows the number of moves the user has left
                 Console.WriteLine("\n\n==============" + $"\n{roundCounter} moves left");
                 roundCounter -= 1;
                 
                 UpdateBulbState();
+                
                 Console.Write("User Input: ");         
-
+                //waits for user's input
                 move = Convert.ToInt32(Console.ReadLine());    
+                
                 
                 switch(move)
                 {
@@ -93,7 +109,8 @@ namespace Projeto1LP1
                         break;
 
                 }
-
+                
+                //win condition
                 if(bulb1.IsOn && bulb2.IsOn && bulb3.IsOn)
                 {
                     Console.WriteLine();
@@ -102,11 +119,11 @@ namespace Projeto1LP1
 
                 }
                     
-                
-
             }
+            //if wins game prints this
             if (winGame == true)
                 Console.WriteLine($"Wow! You have completed this challenge in {6-roundCounter} moves! \nYOU WIN");
+            //if game loss prints this
             else
                 Console.WriteLine("\nOh no... You exceeded the number of moves :/ \nGAME OVER");
             
@@ -123,7 +140,5 @@ namespace Projeto1LP1
             Console.Write(bulb2+" ");
             Console.Write(bulb3+" \n\n");
         }
-
-
     }
 }
