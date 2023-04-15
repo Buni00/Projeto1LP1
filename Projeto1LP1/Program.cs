@@ -17,6 +17,10 @@ namespace Projeto1LP1
         {
             CreateBulbs();
 
+            Intructions();
+
+            button1.Press();
+
             UpdateBulbState();
 
             
@@ -39,13 +43,25 @@ namespace Projeto1LP1
             button3 = new Button(new List<Bulb>() { bulb2, bulb3 });
         }
 
+        /// <summary>
+        /// Updates the state of the bulbs
+        /// </summary>
         private static void UpdateBulbState()
         {
             // Print out the state of each bulb
             Console.WriteLine("Current bulb states:");
-            Console.WriteLine(bulb1);
-            Console.WriteLine(bulb2);
-            Console.WriteLine(bulb3);
+            Console.Write(bulb1+" ");
+            Console.Write(bulb2+" ");
+            Console.Write(bulb3+" ");
+        }
+
+        private static void Intructions()
+        {
+            Console.WriteLine("Welcome to the Bulb Puzzle!\n" +
+            "This game's goal is to light up all the bulbs using the buttons.\nEach button is assigned to 1 or more bulbs:\n"
+            + "  Button 1 --> Bulb 1\n  Button 2 --> Bulb 1 & Bulb 2 \n  Button 3 --> Bulb 2 & Bulb 3\n"
+            +"Use 1 - 3 keys to press the respective button.\n"
+            + "The bulbs will start all turned off ->\u25EF\nBut be careful! You only have 6 moves!");
         }
     }
 }
