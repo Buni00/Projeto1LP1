@@ -61,13 +61,16 @@ namespace Projeto1LP1
             int roundCounter = 6;
             int move;
 
-            while (roundCounter > 0) //|| game win condition
+            bool winGame = false;
+
+            while (!winGame && roundCounter > 0)
             {
-                Console.WriteLine($"{roundCounter} moves left");
+                Console.WriteLine("\n\n==============" + $"\n{roundCounter} moves left");
                 roundCounter -= 1;
                 
                 UpdateBulbState();
-                
+                Console.Write("User Input: ");         
+
                 move = Convert.ToInt32(Console.ReadLine());    
                 
                 switch(move)
@@ -77,18 +80,36 @@ namespace Projeto1LP1
                         break;
 
                     case 2:
+                        button2.Press();
                         break;
 
                     case 3:
+                        button3.Press();
                         break;
 
                     default:
-                        roundCounter += 1;                    //so the Counter doesn't go down
+                        roundCounter += 1;                    //so the Counter doesn't go down when error occurs
                         Console.WriteLine("Error! The input must be a number between 1 and 3");
                         break;
 
                 }
+
+                if(bulb1.IsOn && bulb2.IsOn && bulb3.IsOn)
+                {
+                    Console.WriteLine();
+                    UpdateBulbState();
+                    winGame = true;
+
+                }
+                    
+                
+
             }
+            if (winGame == true)
+                Console.WriteLine($"Wow! You have completed this challenge in {6-roundCounter} moves! \nYOU WIN");
+            else
+                Console.WriteLine("\nOh no... You exceeded the number of moves :/ \nGAME OVER");
+            
         }
         
         /// <summary>
@@ -100,7 +121,9 @@ namespace Projeto1LP1
             Console.WriteLine("Current bulb states:");
             Console.Write(bulb1+" ");
             Console.Write(bulb2+" ");
-            Console.Write(bulb3+" ");
+            Console.Write(bulb3+" \n\n");
         }
+
+
     }
 }
