@@ -17,11 +17,9 @@ namespace Projeto1LP1
         {
             CreateBulbs();
 
-            Intructions();
+            Instructions();
 
-            button1.Press();
-
-            UpdateBulbState();
+            GameCycle();
 
             
         }
@@ -43,6 +41,56 @@ namespace Projeto1LP1
             button3 = new Button(new List<Bulb>() { bulb2, bulb3 });
         }
 
+        
+
+        /// <summary>
+        /// Prints the game base Instructions
+        /// </summary>
+        private static void Instructions()
+        {
+            Console.WriteLine("Welcome to the Bulb Puzzle!\n" +
+            "This game's goal is to light up all the bulbs using the buttons.\nEach button is assigned to 1 or more bulbs:\n"
+            + "  Button 1 --> Bulb 1\n  Button 2 --> Bulb 1 & Bulb 2 \n  Button 3 --> Bulb 2 & Bulb 3\n"
+            +"Use 1 - 3 keys to press the respective button.\n"
+            + "The bulbs will start all turned off ->\u25EF\nBut be careful! You only have 6 moves!"
+            );
+        }
+        
+        private static void GameCycle()
+        {
+            int roundCounter = 6;
+            int move;
+
+            while (roundCounter > 0) //|| game win condition
+            {
+                Console.WriteLine($"{roundCounter} moves left");
+                roundCounter -= 1;
+                
+                UpdateBulbState();
+                
+                move = Convert.ToInt32(Console.ReadLine());    
+                
+                switch(move)
+                {
+                    case 1:
+                        button1.Press();
+                        break;
+
+                    case 2:
+                        break;
+
+                    case 3:
+                        break;
+
+                    default:
+                        roundCounter += 1;                    //so the Counter doesn't go down
+                        Console.WriteLine("Error! The input must be a number between 1 and 3");
+                        break;
+
+                }
+            }
+        }
+        
         /// <summary>
         /// Updates the state of the bulbs
         /// </summary>
@@ -53,15 +101,6 @@ namespace Projeto1LP1
             Console.Write(bulb1+" ");
             Console.Write(bulb2+" ");
             Console.Write(bulb3+" ");
-        }
-
-        private static void Intructions()
-        {
-            Console.WriteLine("Welcome to the Bulb Puzzle!\n" +
-            "This game's goal is to light up all the bulbs using the buttons.\nEach button is assigned to 1 or more bulbs:\n"
-            + "  Button 1 --> Bulb 1\n  Button 2 --> Bulb 1 & Bulb 2 \n  Button 3 --> Bulb 2 & Bulb 3\n"
-            +"Use 1 - 3 keys to press the respective button.\n"
-            + "The bulbs will start all turned off ->\u25EF\nBut be careful! You only have 6 moves!");
         }
     }
 }
