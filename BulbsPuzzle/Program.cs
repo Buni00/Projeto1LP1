@@ -6,7 +6,7 @@ namespace BulbsPuzzle
 {
     class Program
     {   
-        /// <summary>
+        
         /// declaring 3 different buttons
         /// </summary>
         private static Button button1;
@@ -22,7 +22,7 @@ namespace BulbsPuzzle
         
         static void Main(string[] args)
         {
-            Console.OutputEncoding = Encoding.UTF8; 
+            Console.OutputEncoding = Encoding.UTF8;     //Worked before without it, just a precaution if used in another type of Console
 
             CreateBulbs();
 
