@@ -22,6 +22,10 @@ https://github.com/Buni00/Projeto1LP1
 
 O código foi dividio em métodos para evitar a repetição de código desnecessária e esses métodos foram: CreateBulbs serve para criar 3 lâmpadas e 3 butões; Instructions tem como função imprimir todas as instruções para que seja possível jogar sem qualquer tipo de dúvida; UpdateBulbState tal como o nome indica, atualiza o estado das lampadas visualmente; o método GameCycle este loop verifica a condição de vitória e derrota, também lê os inputs do jogador e controla quantos movimentos faltam; no Main são chamados apenas os métodos indicados anteriormente. Também foi utilizadas classes para uma melhor estrutura do código: a classe Bulb é a lâmpada que contêm um número e um estado (ligada ou desligada) também tem um método Switch que altera entre ligado ou desligado; a classe  Button que cria um botão e associa com uma lista de lampadas, no botão podemos aceder ao Switch para desligar ou ligar a lanterna.
 
+## 4. Referências
+
+Tirei algumas dúvidas em questões sobre que símbolos seriam mais adequados para representar as lampadas. Utilizei ChatGPT para correção e compreensão de erros no código. Ultimamente, pedi ajuda a um colega antigo de Engenharia Informática para me ajudar a perceber os fluxogramas. Usei como base o markdown do ano passado para poupar tempo na formatação do texto.
+
 ### Fluxograma
 
 ![BulbPuzzleFlux.drawio.png](https://drive.google.com/file/d/1IfelZjYqCzXIw2N_y3jnp-hfI560W50m/view?usp=share_link)
